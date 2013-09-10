@@ -11,6 +11,7 @@ PRODUCTION_ROOT = /var/opt/
 #Where should the apache conf of the project be deployed?
 #Personally, I prefer that one have a special "extras" conf dir (specified via APACHE_CONF_INCLUDE_DIRS in /etc/sysconfig/apache2)
 APACHE_CONF_DIR = /media/planet/LABS/apache_confs/
+APACHE_USER = wwwrun
 
 
 db:
@@ -44,6 +45,9 @@ apache-install:apache-reload
 
 #best this is run as root...
 install:init-db apache-install
+	@echo "Also init media directory..."
+	mkdir $(PROJECT_DIR)/media
+	chown $(APACHE_USER) $(PROJECT_DIR)/media
 
 #best this is run as root...
 all:install
@@ -51,5 +55,3 @@ all:install
 
 uninstall:drop-db apache-undeploy
 	@echo "Removed the magical diary from this server..."
-	
-
