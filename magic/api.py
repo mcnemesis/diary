@@ -1,0 +1,2 @@
+def events(request):
+    return ''
