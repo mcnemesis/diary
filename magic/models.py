@@ -37,7 +37,7 @@ class Event(models.Model):
 
     '''mandatory'''
     title = models.CharField( max_length = 137 )
-    summary = models.CharField( max_length = 137 * 3 )
+    summary = models.TextField()
     date = models.DateField()
     kind = models.CharField( max_length = 1, choices = KINDS_OF_WORK )
     originality = models.CharField( max_length = 1, choices = FORMS_OF_ORIGINALITY )
