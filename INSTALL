@@ -1,0 +1,60 @@
+Part of the philosophy behind this project is to make it possible for anyone to host their own magical diary.
+
+To make this simple for anyone, I've tried to keep the installation steps to bare minimum (but not the simplest for some platforms).
+
+Prerequisites:
+--------------
+
+This project is an Django project meant to be deployed in Apache2 as a MOD WSGSI app.
+
+It also expects to use the open-source database Postgres (but has support of any database backend supported by the Django project)
+
+As such, the following is assumed to be (or in) one's environment:
+
+    - Linux/Unix Platform
+    - Apache2
+    - mod_wsgi Apache2 module
+    - Python (tested with 2.7)
+    - Django Python package
+    - Postgres (tested with 9.2.3)
+    - A standard shell
+
+
+To Customize/Personalize the Installation:
+------------------------------------------
+
+As this is a Django Project, there might be various thing one might wish to customize in order to fit the project into their custom 
+environment. For this, refer to the well-documented Django project settings file (settings.py) in the project directory (diary/settings.py)
+
+In addition to customizing the Django project, one might wish to alter the included special Apache configuration file to suit their needs,
+for this, edit the file diary/diary_apache.conf.
+
+
+Then finally, with the above modifications (if any), the final configuration file to change might be the included Makefile in the setup directory.
+
+
+INSTALL
+=========
+
+Once the necessary prerequisites and customizations are satisfied, then installation is as simple as:
+
+cd setup && sudo make install
+
+
+UNINSTALLATION:
+===============
+
+At any time, it should be possible to entirely erase the project from one's server by running:
+
+cd setup && sudo make uninstall
+
+
+HELP:
+=======
+
+As this is a Django project, most Django-specific problems you might encounter most likely have reliable/comprehensive solutions on the internet.
+
+Also, the Django project mantains a very holistic corpus of documentation, for those that wish to hack the internals of this project.
+
+Should you encounter some wierd bugs or corner-cases that you think are app-specific, then please let me know (create an issue on the github project if 
+possible, or contact me by mail). Alternatively, inquire from other members of the community...
