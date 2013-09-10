@@ -1,0 +1,6 @@
+logs
+*.pyc
+*.pyo
+MANIFEST
+*.egg-info
+media
