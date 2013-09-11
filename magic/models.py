@@ -8,6 +8,7 @@ KINDS_OF_WORK = (
         ('s', 'Success'),
         ('l', 'Reflection'),
         ('a', 'Art'),
+        ('d', 'Dream'),
         ('m', 'Miscellaneous'),
         )
 FORMS_OF_ORIGINALITY = (
