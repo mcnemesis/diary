@@ -90,17 +90,24 @@ class Event(models.Model):
     @property
     def view_reminder_frequency(self):
         return self.get_reminder_frequency_display()
+    @property
+    def view_date(self):
+        return self.date.strftime("%a %b %d, %Y")
 
     @staticmethod
     def public_stream():
         return Event.objects.filter( private = False )
+
+    @staticmethod
+    def stream():
+        return Event.objects.all()
 
     def __unicode__(self):
         return '''%s[%s %s on %s] %s''' % (
                 '*' if self.private else '',
                 self.view_originality,
                 self.view_kind,
-                self.date.strftime("%a %b %d, %Y"),
+                self.view_date,
                 self.title
                 )
 

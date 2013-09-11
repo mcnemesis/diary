@@ -122,6 +122,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django_admin_bootstrapped',
+
     'django.contrib.admin',
     'magic',
 )
@@ -166,6 +169,7 @@ TEMPLATE_CONTEXT_PROCESSORS  = (
     "django.contrib.messages.context_processors.messages",
     "diary.context_processors.customisation",
 )
+
 
 #Magical Diary Settings: Please customize
 APP_NAME = "Magical Diary"

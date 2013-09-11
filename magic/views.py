@@ -4,7 +4,7 @@ from magic.models import Event
 from diary.settings import *
 
 def home(request):
-    events = Event.public_stream()
+    events = Event.public_stream() if not request.user.is_authenticated() else Event.stream()
     categories = [{'name' : e.view_kind, 'key' : e.kind } for e in events.distinct('kind')]
     events_dict= {}
     for c in categories:

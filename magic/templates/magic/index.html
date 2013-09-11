@@ -65,9 +65,15 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome Fellow Seeker!</h1>
-        <p>This is the magical diary of {{ MAGICIAN_NAME|default:'an another seeker' }}.</p>
-        <p>Here are shared the ritual formulae, lessons, reflections, successes, art and other tidbits of magical work the author wishes to share publicly from their magical diary.</p>
+          {% if not user.is_authenticated %}
+            <h1>Welcome Fellow Seeker!</h1>
+            <p>This is the magical diary of {{ MAGICIAN_NAME|default:'an another seeker' }}.</p>
+            <p>Here are shared the ritual formulae, lessons, reflections, successes, art and other tidbits of magical work the author wishes to share publicly from their magical diary.</p>
+          {% else %}
+          <h2>Welcome {{ user }}</h2>
+            <p>You are viewing the magical diary stream of {{ MAGICIAN_NAME|default:'the seeker' }}.</p>
+          {% endif %}
+
       </div>
     </div>
 
@@ -91,7 +97,7 @@
                         <div class="panel-heading">
                           <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_{{ kind.key }}" href="#collapse_{{ event.id }}">
-                              {{ event }}    
+                                <small>{{ event.view_originality }} {{ event.view_kind }} on {{ event.view_date }}</small> {{ event.title }}
                             </a>
                           </h4>
                         </div>

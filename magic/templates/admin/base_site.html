@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+{% load i18n %}{% load admin_static bootstrapped_goodies_tags %}{% load url from future %}
+
+{% block title %}
+        {% render_with_template_if_exist cl.opts.app_label|lower|add:"/admin_app_name.html" cl.opts.app_label|default:APP_NAME %} | {% trans 'Admin' %}
+{% endblock %}
+
+{% block branding %}
+<a class="brand" href="{% url 'home' %}">
+    {{ APP_NAME }}
+</a>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
