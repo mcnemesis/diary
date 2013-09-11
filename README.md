@@ -17,6 +17,7 @@ It is my wish that I create 1 platform that can allow the me to record the follo
     - Reminders of things to do
     - Success obtained
     - Reflections done (e.g results of meditation)
+    - Important Dreams (results of Lucid Dreaming)
     - Images taken/collected in relation to work
     - Arbitrary Entry
 
