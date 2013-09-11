@@ -164,9 +164,15 @@ TEMPLATE_CONTEXT_PROCESSORS  = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
+    "diary.context_processors.customisation",
 )
 
 #Magical Diary Settings: Please customize
 MAGICIAN_NAME = "Nemesis Fixx"
 HOME_TITLE = "The Nemesis Diary"
 SITE_DESCRIPTION = "The magical diary of Nemesis Fixx"
+
+INSTALLED_THEMES = [
+        {'name' : 'Slate', 'value' : 'slate'},
+        {'name' : 'Cyborg', 'value' : 'cyborg'},
+        ]
