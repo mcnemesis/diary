@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.markup',
     'django_admin_bootstrapped',
 
     'django.contrib.admin',

@@ -16,6 +16,8 @@ As such, the following is assumed to be (or in) one's environment:
     - mod_wsgi Apache2 module
     - Python (tested with 2.7)
     - Django Python package
+    - Django-bootstrapped
+    - Python Markdown
     - Postgres (tested with 9.2.3)
     - A standard shell
 

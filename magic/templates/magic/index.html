@@ -1,3 +1,4 @@
+{% load markup %}
 {% load magic_tags %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -105,7 +106,7 @@
                         <div id="collapse_{{ event.id }}" class="panel-collapse collapse {% if forloop.first %}in{% endif %}">
                             <div class="panel-body">
 
-                                {{ event.summary }}
+                                {{ event.summary|markdown }}
 
                             </div>
                         </div>
