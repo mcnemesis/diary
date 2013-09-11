@@ -94,6 +94,83 @@ class Event(models.Model):
     def view_date(self):
         return self.date.strftime("%a %b %d, %Y")
 
+    @property
+    def has_references(self):
+        return self.references is not None and len(self.references.strip()) > 0
+    @property
+    def has_partners(self):
+        return self.partners is not None and len(self.partners.strip()) > 0
+    @property
+    def has_details(self):
+        return self.details is not None and len(self.details.strip()) > 0
+    @property
+    def has_tags(self):
+        return self.tags is not None and len(self.tags.strip()) > 0
+    @property
+    def has_purpose(self):
+        return self.purpose is not None and len(self.purpose.strip()) > 0
+    @property
+    def has_art(self):
+        try:
+            return True if self.primary_art or self.secondary_art else False
+        except:
+            return False
+    @property
+    def has_related(self):
+        return self.related is not None and self.related.all().count() > 0
+
+    @property
+    def has_primary_art(self):
+        try:
+            return True if self.primary_art else False
+        except:
+            return False
+
+    @property
+    def has_secondary_art(self):
+        try:
+            return True if self.secondary_art else False
+        except:
+            return False
+
+    @property
+    def tag_list(self):
+        return map(lambda t:t.strip(), self.tags.split(',')) if self.has_tags else []
+
+    @property
+    def related_events(self):
+        return self.related.all()
+
+    @property
+    def related_events_public(self):
+        return self.related_events.filter( private = False )
+
+    @property
+    def has_related_events_public(self):
+        if not self.has_related:
+            return False
+        else:
+            return True if self.related_events_public.count() > 0 else False
+
+    @property
+    def reference_dicts(self):
+        if self.has_references:
+            try:
+                return map(lambda r: {'name':r[0].strip(),'ref':r[1] }, map(lambda r: r.split('|') if '|' in r else [r,''], self.references.split(',')))
+            except:
+                return []
+        else:
+            return []
+    @property
+    def partners_dicts(self):
+        if self.has_partners:
+            try:
+                return map(lambda r: {'name':r[0].strip(),'ref':r[1] }, map(lambda r: r.split('|') if '|' in r else [r,''], self.partners.split(',')))
+            except:
+                return []
+        else:
+            return []
+
     @staticmethod
     def public_stream():
         return Event.objects.filter( private = False )

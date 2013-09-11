@@ -83,7 +83,10 @@
 
         <ul class="nav nav-tabs">
         {% for kind in magic.categories %}
-          <li><a href="#event_{{ kind.key }}" data-toggle="tab">{{ kind.name }}</a></li>
+        <li><a href="#event_{{ kind.key }}" data-toggle="tab">
+            <span class="badge"> {{ magic.events|get:kind.key|length }}</span> 
+            {{ kind.name }}
+        </a></li>
         {% endfor %}
         </ul>
 
@@ -106,7 +109,163 @@
                         <div id="collapse_{{ event.id }}" class="panel-collapse collapse {% if forloop.first %}in{% endif %}">
                             <div class="panel-body">
 
-                                {{ event.summary|markdown }}
+                                <div class="list-group">
+                                    {% if event.has_purpose %}
+                                    <div class="list-group-item">
+                                        <h3 class="list-group-item-heading">The Purpose...</h3>
+                                        <div>
+                                            <div class="alert alert-info">{{ event.purpose }}</div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+                                    <div class="list-group-item active">
+                                        <h4 class="list-group-item-heading">In Summary</h4>
+                                        <div>
+                                            {{ event.summary|markdown }}
+                                        </div>
+                                    </div>
+
+                                    {% if event.has_details %}
+                                    <div class="list-group-item">
+                                        <h4 class="list-group-item-heading">The Details...</h4>
+                                        <div>
+                                            {{ event.details|markdown }}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+
+                                    {% if event.has_art %}
+                                    <div class="list-group-item">
+                                        <div>
+
+                                         <div id="carousel_{{ event.id }}" class="carousel slide">
+
+                                              <!-- Indicators -->
+                                              <ol class="carousel-indicators">
+                                                  <li data-target="#carousel_{{ event.id }}" data-slide-to="0" class="active"></li>
+                                                {% if event.has_primary_art and event.has_secondary_art %}
+                                                  <li data-target="#carousel_{{ event.id }}" data-slide-to="1"></li>
+                                                {% endif %}
+                                              </ol>
+
+                                          <!-- Wrapper for slides -->
+                                          <div class="carousel-inner">
+
+                                            {% if event.has_primary_art and event.has_secondary_art %}
+                                                <div class="item active">
+                                                <img src="{{ event.primary_art.url }}" alt="Primary Art">
+                                                  <div class="carousel-caption">
+                                                      Art 1
+                                                  </div>
+                                                </div>
+
+                                                <div class="item">
+                                                <img src="{{ event.secondary_art.url }}" alt="Secondary Art">
+                                                  <div class="carousel-caption">
+                                                      Art 2
+                                                  </div>
+                                                </div>
+                                            {% else %}
+                                                <div class="item active">
+                                                    {% if event.has_primary_art %}
+                                                    <img src="{{ event.primary_art.url }}" alt="Primary Art">
+                                                      <div class="carousel-caption">
+                                                          Art 1
+                                                      </div>
+                                                    {% else %}
+                                                    <img src="{{ event.secondary_art.url }}" alt="Secondary Art">
+                                                      <div class="carousel-caption">
+                                                          Art 1
+                                                      </div>
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
+
+                                          </div>
+
+                                          <!-- Controls -->
+                                          <a class="left carousel-control" href="#carousel_{{ event.id }}" data-slide="prev">
+                                            <span class="icon-prev"></span>
+                                          </a>
+                                          <a class="right carousel-control" href="#carousel_{{ event.id }}" data-slide="next">
+                                            <span class="icon-next"></span>
+                                          </a>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                    {% endif %}
+
+                                    {% if event.has_tags %}
+                                    <div class="list-group-item">
+                                        <h5 class="list-group-item-heading">Tags</h5>
+                                        <div>
+                                            <ul class="nav nav-pills">
+                                            {% for tag in event.tag_list %}
+                                            <li> <span class="label label-default"> {{ tag }} </span> </li>
+                                            {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if event.has_references %}
+                                    <div class="list-group-item">
+                                        <h5 class="list-group-item-heading">References</h5>
+                                        <div>
+                                            <ul class="nav nav-pills">
+                                            {% for r in event.reference_dicts %}
+                                            <li {% if not r.ref %}class="disabled"{% endif %}><a href="{{ r.ref|default:'#' }}">{{ r.name }}</a></li>
+                                            {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if event.has_partners %}
+                                    <div class="list-group-item">
+                                        <h5 class="list-group-item-heading">Partners</h5>
+                                        <div>
+                                            <ul class="nav nav-pills">
+                                            {% for r in event.partners_dicts %}
+                                            <li {% if not r.ref %}class="disabled"{% endif %}><a href="{{ r.ref|default:'#' }}">{{ r.name }}</a></li>
+                                            {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+                                  {% if user.is_authenticated %}
+                                        {% if event.has_related %}
+                                        <div class="list-group-item">
+                                            <h5 class="list-group-item-heading">Related Events</h5>
+                                            <div>
+                                                <ul class="list-group">
+                                                {% for e in event.related_events %}
+                                                    <li class="list-group-item">{{ e }}</li>
+                                                {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    {% else %}
+                                        {% if event.has_related_events_public %}
+                                        <div class="list-group-item">
+                                            <h5 class="list-group-item-heading">Related Events</h5>
+                                            <div>
+                                                <ul class="list-group">
+                                                {% for e in event.related_events_public %}
+                                                    <li class="list-group-item">{{ e }}</li>
+                                                {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    {% endif %}
+                                    
+                                </div>
 
                             </div>
                         </div>
