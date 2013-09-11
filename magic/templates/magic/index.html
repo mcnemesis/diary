@@ -1,3 +1,4 @@
+{% load magic_tags %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -35,13 +36,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">{{ APP_NAME }}</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="{% url 'home' %}">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a target="blank" href="https://github.com/mcnemesis/diary">Get Your Own Diary Now</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Theme <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -53,12 +54,9 @@
           </ul>
           <form class="navbar-form navbar-right">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" placeholder="Search, Seek, See..." name="search" class="form-control">
             </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="submit" class="btn btn-success">Ab!</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -67,39 +65,66 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1>Welcome Fellow Seeker!</h1>
+        <p>This is the magical diary of {{ MAGICIAN_NAME|default:'an another seeker' }}.</p>
+        <p>Here are shared the ritual formulae, lessons, reflections, successes, art and other tidbits of magical work the author wishes to share publicly from their magical diary.</p>
       </div>
     </div>
 
     <div class="container">
-      <!-- Example row of columns -->
       <div class="row">
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+
+        <ul class="nav nav-tabs">
+        {% for kind in magic.categories %}
+          <li><a href="#event_{{ kind.key }}" data-toggle="tab">{{ kind.name }}</a></li>
+        {% endfor %}
+        </ul>
+
+        <div class="tab-content">
+            {% for kind in magic.categories %}
+            <div class="tab-pane {% if forloop.first %}active{% endif %}" id="event_{{ kind.key }}">
+                <div class="panel-group" id="accordion_{{ kind.key }}">
+
+                {% for event in magic.events|get:kind.key %}
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_{{ kind.key }}" href="#collapse_{{ event.id }}">
+                              {{ event }}    
+                            </a>
+                          </h4>
+                        </div>
+
+                        <div id="collapse_{{ event.id }}" class="panel-collapse collapse {% if forloop.first %}in{% endif %}">
+                            <div class="panel-body">
+
+                                {{ event.summary }}
+
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-        </div>
+
+
       </div>
 
       <hr>
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <p> &copy; {{ MAGICIAN_NAME|default:'Owner' }} <script>document.write( (new Date()).getFullYear() ); </script> | {{ APP_NAME|default:'Magical Diary' }} is based on the occult project <a href="https://github.com/mcnemesis/diary" class="btn btn-link">diary</a></p>
+        <hr/>
+        <small>Enter the gates <a href="{% url 'admin:index' %}" class="btn btn-default">here</a></small>
       </footer>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+  </div> <!-- /container -->        
+  <script src="js/vendor/jquery-1.10.1.min.js"></script> <!-- prefer to default to the local jquery -->
+        <script>window.jQuery || document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/vendor/jquery.cookie.js"></script>

@@ -168,6 +168,7 @@ TEMPLATE_CONTEXT_PROCESSORS  = (
 )
 
 #Magical Diary Settings: Please customize
+APP_NAME = "Magical Diary"
 MAGICIAN_NAME = "Nemesis Fixx"
 HOME_TITLE = "The Nemesis Diary"
 SITE_DESCRIPTION = "The magical diary of Nemesis Fixx"
