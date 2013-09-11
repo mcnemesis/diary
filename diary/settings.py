@@ -175,4 +175,5 @@ SITE_DESCRIPTION = "The magical diary of Nemesis Fixx"
 INSTALLED_THEMES = [
         {'name' : 'Slate', 'value' : 'slate'},
         {'name' : 'Cyborg', 'value' : 'cyborg'},
+        {'name' : 'Cosmo', 'value' : 'cosmo'},
         ]
