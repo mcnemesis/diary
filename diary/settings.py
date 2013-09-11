@@ -177,6 +177,46 @@ APP_NAME = "Magical Diary"
 MAGICIAN_NAME = "Nemesis Fixx"
 HOME_TITLE = "The Nemesis Diary"
 SITE_DESCRIPTION = "The magical diary of Nemesis Fixx"
+#The Site's About information is configured here (supports using MarkDown)
+MAGICIAN_ABOUT = '''
+
+A little background
+-------------------
+
+Am Nemesis Fixx (also known as Lutalo Joseph Willrich), a Ugandan by birth, and a machine programmer by proffession.
+
+Occult Interests
+----------------
+
+I have been actively interested in phenomena of the LHP since 2006, and before that was an active member of the +RCC, before I decided to quit.
+
+Since around 2009, my interests in the Occult diversified into other many other paths and dimensions, and of late, my will is to advance myself and the craft in a modern, pragmatic and systematic manner. Currently, my major influences are probably from the schools of Chaos Magic and Modern Satanism.
+
+Other Interests
+---------------
+
+I've tried to live a full and balanced life (in the short time during this incarnation). I write software, make music, write poetry, create art, ride my bike, meet friends, make love and practice magic.
+
+Contact
+-------
+
+Should you need to contact me, you might catch me any of the following dimensions:
+
+    - Google+ (Joe Willrich Lutalo)
+    - GitHub (mcnemesis)
+    - GMail (joewillrich)
+    - IRC (nemesisfixx : freenode)
+    - LinkedIn (Joe Willrich Lutalo)
+    - SoundCloud (Nemesis Fixx)
+    - LastFM (Nemesis Fixx)
+    - DeviantArt (Nemesis Fixx)
+
+Philosophy
+----------
+
+A life unexplored is not worth living - Plato
+'''
+
 
 INSTALLED_THEMES = [
         {'name' : 'Slate', 'value' : 'slate'},

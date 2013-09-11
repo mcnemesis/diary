@@ -7,6 +7,6 @@ from magic.models import Event
 admin.site.unregister( Site )
 
 class EventAdmin(admin.ModelAdmin):
-    pass
+    filter_vertical = ('related',)
 
 admin.site.register(Event,EventAdmin)
