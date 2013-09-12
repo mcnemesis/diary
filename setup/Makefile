@@ -48,6 +48,9 @@ install:init-db apache-install
 	@echo "Also init media directory..."
 	mkdir $(PROJECT_DIR)/media
 	chown $(APACHE_USER) $(PROJECT_DIR)/media
+	@echo "Also init logs directory..."
+	mkdir $(PROJECT_DIR)/logs
+	chown $(APACHE_USER) $(PROJECT_DIR)/logs
 
 #best this is run as root...
 all:install
