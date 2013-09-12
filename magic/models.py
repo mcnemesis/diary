@@ -1,15 +1,16 @@
 from django.db import models
 
 KINDS_OF_WORK = (
+        ('m', 'Meditation'),
         ('f', 'Formula'),
         ('r', 'Ritual'),
-        ('l', 'Lesson'),
-        ('e', 'Reminder'),
-        ('s', 'Success'),
-        ('l', 'Reflection'),
-        ('a', 'Art'),
         ('d', 'Dream'),
-        ('m', 'Miscellaneous'),
+        ('z', 'Realization'),
+        ('l', 'Lesson'),
+        ('n', 'Reflection'),
+        ('e', 'Reminder'),
+        ('a', 'Art'),
+        ('i', 'Miscellaneous'),
         )
 FORMS_OF_ORIGINALITY = (
         ('o', 'Original'),
