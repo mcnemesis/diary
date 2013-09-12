@@ -40,6 +40,39 @@ And finally, In Aleister Crowley's own words, in Letter A (probably the very fir
     It is absolutely essential to begin a magical diary, and keep it up daily.  
 
 
+-----------
+
+Interestingly, it's not just students of the occult that need (or keep) diaries or journals (as they are better known especially in scientific circles). I did find a couple of non-occult arguments for why it's important for one to keep a diary/journal of their practical work, theories, lessons, etc. Here are some of them...
+
+
+At [Planting Science](http://www.plantingscience.org/index.php?module=content&func=view&pid=74), they say this concerning the importance of this concept:
+
+    A research journal, or a laboratory notebook, is a very detailed record of every aspect of a scientific investigation. Scientists keep records of their investigations for a number of reasons. A very practical reason is that if a detail is not written down, it is likely to be forgotten. 
+
+
+    In order to publish in a scientific journal, a scientist must report the details of how the investigation was conducted: how was the experiment designed, what kinds of data were collected, how often were data collected. Scientists also give credit to other scientists for their ideas, and they need to note the source for the “facts” and ideas that are a part of their background research. So, a research journal serves as the primary document containing all the information needed to create a final paper or public presentation.
+    A research journal also serves as a personal reference document for a scientist to guide future investigations. All the notes of what worked well in an experiment, and what didn’t, are in one place for quick review. This organized system of tracking your research process saves you a lot of time and gives you a big jump on planning new research projects. In this case, a research journal is a tool for improving science.
+    
+In summary: `a research journal is a tool for improving science`, the same can be said of the magical diary for the Occult Sciences.
+
+
+And then, in an article on the [Self Directed Learning](http://selfdirectedlearning.com/personal-development/how-can-i-journal-my-way-to-success.html) site, Maurice Gibbons tells us that:
+
+    You journal your way to success by copying the techniques used by thousands of successful people over the last few centuries in their journals.
+
+He goes on to say:
+
+    Scientists are in the business of solving problems or answering questions to increase our knowledge about the world and how it works. They might see something or get an idea anywhere and they need somewhere to write it down and keep their findings organized. 
+
+He does stress the difference between a diary and a journal, but personally, I think the magical diary has elements of both:
+
+    The difference between a diary and a journal is that a diary is about what has happened to you and a journal is about ideas, plans and actions. The key is finding out and then putting it to work as purposeful action.
+
+And his most important argument for journaling being:
+
+    The real magic of the journal is that it holds things together in one place, and then something strange begins to happen. Information leads to ideas, ideas to action, and action to accomplishment. And what we know from research now is that we learn from all of these stages, and learn well because the stages are integrated into a process, and the process is burned into memory.
+
+I can't push the argument any further than this. Go get (or setup) one...
 
 
 
