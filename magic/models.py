@@ -187,5 +187,3 @@ class Event(models.Model):
                 self.view_date,
                 self.title
                 )
-
-

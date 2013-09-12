@@ -39,8 +39,10 @@ def home(request):
                     Q(place__icontains = query)
                     )
 
-
     categories = [{'name' : e.view_kind, 'key' : e.kind } for e in events.distinct('kind')]
+
+    events = events.order_by("-created","-date","-time")
+
     events_dict= {}
     for c in categories:
         events_dict[c['key']] = events.filter( kind = c['key'] )
