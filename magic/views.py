@@ -2,10 +2,40 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.db.models import Q
 
-from magic.models import Event
+from magic.models import Event, Log
 from diary.settings import *
 
+
+#----- logging
+import logging
+
+logging.basicConfig(level=LOG_LEVEL, filename=MAIN_LOG)
+logger = logging.getLogger(__name__)
+
+def log_request(r):
+    log = '''
+    Path : %s
+    Method : %s
+    HTTP_HOST : %s
+    HTTP_REFERER : %s
+    QUERY_STRING : %s
+    REMOTE_ADDR : %s
+    REMOTE_HOST : %s
+    REMOTE_USER : %s
+    ''' % (r.path, r.method,
+        r.META.get('HTTP_HOST',''),
+        r.META.get('HTTP_REFERER',''),
+        r.META.get('QUERY_STRING',''),
+        r.META.get('REMOTE_ADDR',''),
+        r.META.get('REMOTE_HOST',''),
+        r.META.get('REMOTE_USER','')
+        )
+    logger.debug(log)
+    Log( kind = 'REQUEST', log = log).save()
+
 def home(request):
+    log_request(request)
+
     events = Event.public_stream() if not request.user.is_authenticated() else Event.stream()
 
     if 'search' in request.REQUEST:

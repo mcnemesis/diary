@@ -224,3 +224,20 @@ INSTALLED_THEMES = [
         {'name' : 'Cyborg', 'value' : 'cyborg'},
         {'name' : 'Cosmo', 'value' : 'cosmo'},
         ]
+
+#----------- LOGGING ----------------
+from errno import EEXIST
+from dateutil.easter import datetime
+import logging
+
+def make_sure_path_exists(path):
+    try:
+        os.makedirs(path)
+    except OSError as exception:
+        if exception.errno != EEXIST:
+            raise
+
+LOG_DIR = '%s/logs' % PROJECT_ROOT
+make_sure_path_exists(LOG_DIR)
+MAIN_LOG = '%s/log_%s' % (LOG_DIR,datetime.date.strftime(datetime.date.today(),'%b_%d_%Y'))
+LOG_LEVEL = logging.ERROR

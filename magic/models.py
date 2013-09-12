@@ -188,3 +188,20 @@ class Event(models.Model):
                 self.view_date,
                 self.title
                 )
+
+class Log(models.Model):
+    '''Just so we can automatically log activities happening in the magical diary app itself, and probably mine some statistics from them'''
+    created = models.DateTimeField ( auto_now_add = True )
+    log = models.TextField()
+    kind = models.CharField( max_length = 137 )
+
+    def view_log(self):
+        return '''
+        <div class="well well-large">
+            <p>%s</p>
+        </div>''' % self.log.replace("\n","\n<br/>\n")
+
+    view_log.allow_tags = True
+    view_log.short_description = 'Log'
+
+
