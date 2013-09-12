@@ -9,6 +9,7 @@ def customisation(request):
             'APP_NAME' : APP_NAME,
             'MAGICIAN_ABOUT' : MAGICIAN_ABOUT,
             'MAGICIAN_NAME' : MAGICIAN_NAME,
+            'BASE_URL' : BASE_URL,
             }
 
     return custom

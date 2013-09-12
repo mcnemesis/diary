@@ -12,7 +12,7 @@
         <meta name="description" content="{{ description|default:'Magic Diary' }}">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ BASE_URL }}/css/bootstrap.min.css">
         <style>
             body {
                 padding-top: 50px;
@@ -20,10 +20,10 @@
             }
         </style>
         <!-- bootstrap theme -->
-        <link rel="stylesheet" href="css/bootstrap/themes/{{ THEME|default:'cyborg' }}/bootstrap.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="{{ BASE_URL }}/css/bootstrap/themes/{{ THEME|default:'cyborg' }}/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ BASE_URL }}/css/main.css">
 
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="{{ BASE_URL }}/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -311,13 +311,13 @@
         <small>Enter the gates <a href="{% url 'admin:index' %}" class="btn btn-default">here</a></small>
       </footer>
   </div> <!-- /container -->        
-  <script src="js/vendor/jquery-1.10.1.min.js"></script> <!-- prefer to default to the local jquery -->
+  <script src="{{ BASE_URL }}/js/vendor/jquery-1.10.1.min.js"></script> <!-- prefer to default to the local jquery -->
         <script>window.jQuery || document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>')</script>
 
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/vendor/jquery.cookie.js"></script>
+        <script src="{{ BASE_URL }}/js/vendor/bootstrap.min.js"></script>
+        <script src="{{ BASE_URL }}/js/vendor/jquery.cookie.js"></script>
 
-        <script src="js/main.js"></script>
+        <script src="{{ BASE_URL }}/js/main.js"></script>
 
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
