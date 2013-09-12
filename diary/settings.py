@@ -209,12 +209,13 @@ Should you need to contact me, you might catch me any of the following dimension
     - LinkedIn (Joe Willrich Lutalo)
     - SoundCloud (Nemesis Fixx)
     - LastFM (Nemesis Fixx)
-    - DeviantArt (Nemesis Fixx)
+    - DeviantArt (nemesisfixx)
 
 Philosophy
 ----------
 
-A life unexplored is not worth living - Plato
+    A life unexplored is not worth living
+        - Socrates
 '''
 
 
