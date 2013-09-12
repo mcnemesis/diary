@@ -117,6 +117,56 @@ Additional Capabilities / Purposes
 Some of these features listed above I  have already implemented in the current working version (check it out here), but some are still pending (as I also await to recieve feedback from the first users of this technology). And some might eventually be scrapped off the list if they are found to be useless.
 
 I shall definitely expect that the community shall provide feedback, feature requests, commit improvements to this technology and criticisms of it, so it can evolve into a more robust and useful tool for every serious occultist.
+
+CURRENT DEMO/EXAMPLES (SCREENSHOTS)
+-----------------------------------
+
+As I am the only one currently using this, here are some screenshots showing how my diary (which can be found [here](http://serval.ug/diary/)) currently looks:
+
+
+- Default Home Page (shows magical diary entries you have decided to share publicly):
+
+![Public Stream](https://raw.github.com/mcnemesis/diary/master/docs/screen_shots/public_magical_diary_stream_screenshot.png)
+
+- After you login ("Enter the gates" link), you can later view a personal magical diary stream like this:
+
+![Private Stream](https://raw.github.com/mcnemesis/diary/master/docs/screen_shots/private_magical_diary_stream_screenshot1.png)
+
+- It is important to note that the current implementation (as will all the future ones) allows any viewer of the diary to select a theme for the diary they find best / most suitable, directly on the stream interface. Here's another theme (currentl, I include 3 themes), for the stream...
+
+![Private Stream Alternative Theme](https://raw.github.com/mcnemesis/diary/master/docs/screen_shots/private_magical_diary_stream_screenshot.png)
+
+- Then, for the owner of the magical diary, once they login, they can manage their entries using a simple and intuitive admin interface. Here's an example of the entry listing for a logged in user...
+
+![Private Admin Interface - Events Listing](https://raw.github.com/mcnemesis/diary/master/docs/screen_shots/magical_diary_admin_interface_events_list_screenshot.png)
+
+- And finally, when logged in, one can use the admin to add/edit/delete (or even search) magical diary entries/events. Here's what the add form looks like...
+
+![Private Admin Interface - Add New Event](https://raw.github.com/mcnemesis/diary/master/docs/screen_shots/magical_diary_admin_interface_events_adding_screenshot.png)
+
+
+
+OTHER MAGICAL DIARIES
+----------------------
+
+I hope that other people using this (or similar) technology shall share links/urls to their magical diaries so everyone can get inspired / informed.
+
+For now, here's the list:
+
+1. [Nemesis Fixx](http://serval.ug/diary/)
+
+
+TO GET STARTED/ HOW DO I GET ONE?
+---------------------------------
+
+For those with technical knowledge of the web/servers, installing one's instance of the magical diary is as simple as cloing this repository, following the installation and customization procedures described in the INSTALL file.
+
+For those who don't own their own server, or those who can't install on their own, you might contact me on any of the links I offer in the "About" of my magical diary. Eventually, someone might probably want to pay a little fee for support/maintainance or whatever... Let me know.
+
+Otherwise, this is FREE and OPEN-SOURCE sofware, which means you can grab it and do whatever you will (to the extent allowed by the included License)
+
+
+Please share this project with all your friends, students, masters and all those seekers on the path. This is my will... let's make it happen!
     
 
 About
